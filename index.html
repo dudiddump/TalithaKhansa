@@ -5,36 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Talitha Khansa Fahira</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Orbitron & Exo 2 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Default font for body */
         body {
             font-family: 'Exo 2', sans-serif;
         }
-        /* Font for headings */
         h1, h2, h3, h4 {
             font-family: 'Orbitron', sans-serif;
         }
-        /* Header blur effect */
         .header-blur {
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        /* Timeline alignment */
         .timeline-item:nth-child(odd) .timeline-content {
             text-align: right;
         }
-        /* Modal styles */
         .modal {
             transition: opacity 0.25s ease;
         }
@@ -44,7 +36,6 @@
         }
     </style>
     <script>
-        // Tailwind CSS theme configuration
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -54,17 +45,36 @@
                         'exo2': ['Exo 2', 'sans-serif'],
                     },
                     colors: {
-                        // Light Mode Colors
                         'primary-light': '#1e3a8a', 
                         'secondary-light': '#f1f5f9',
                         'accent-light': '#be123c',
                         'text-light': '#111827',
                         
-                        // Dark Mode Colors
                         'primary-dark': '#60a5fa',
                         'secondary-dark': '#0f172a',
                         'accent-dark': '#f43f5e',
                         'text-dark': '#e2e8f0',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        }
                     }
                 }
             }
@@ -95,13 +105,13 @@
 
     <main class="container mx-auto px-6 pt-24 md:pt-32">
         <!-- Hero Section -->
-        <section id="hero" class="text-center py-20">
-            <h1 class="text-4xl md:text-6xl font-bold text-primary-light dark:text-primary-dark leading-tight">Talitha Khansa Fahira</h1>
-            <p class="mt-4 text-lg md:text-xl font-medium text-gray-600 dark:text-gray-300">Information Systems & Technology Student</p>
-            <p class="mt-6 max-w-2xl mx-auto text-base">
+        <section id="hero" class="text-center py-20 animate-fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold text-primary-light dark:text-primary-dark leading-tight [animation-delay:0.2s] opacity-0 animate-fade-in-up">Talitha Khansa Fahira</h1>
+            <p class="mt-4 text-lg md:text-xl font-medium text-gray-600 dark:text-gray-300 [animation-delay:0.4s] opacity-0 animate-fade-in-up">Information Systems & Technology Student</p>
+            <p class="mt-6 max-w-2xl mx-auto text-base [animation-delay:0.6s] opacity-0 animate-fade-in-up">
                 A passionate tech student with a focus on cybersecurity, data, and web development. Proven leader and collaborator.
             </p>
-            <div class="mt-8 flex justify-center space-x-4">
+            <div class="mt-8 flex justify-center space-x-4 [animation-delay:0.8s] opacity-0 animate-fade-in-up">
                 <a href="https://linkedin.com/in/talithakhansa" target="_blank" class="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-accent-light dark:hover:bg-accent-dark text-gray-700 dark:text-gray-200 hover:text-white dark:hover:text-white transition-all duration-300" aria-label="LinkedIn">
                     <i data-lucide="linkedin" class="w-6 h-6"></i>
                 </a>
@@ -118,7 +128,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20">
+        <section id="about" class="py-20 opacity-0">
             <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">About Me</h2>
             
             <!-- Profile Picture and Intro Text -->
@@ -171,7 +181,7 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-20">
+        <section id="experience" class="py-20 opacity-0">
             <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Experience</h2>
             <div class="relative max-w-3xl mx-auto">
                 <div class="absolute left-1/2 w-0.5 h-full bg-gray-300 dark:bg-gray-600 transform -translate-x-1/2"></div>
@@ -239,7 +249,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-20">
+        <section id="projects" class="py-20 opacity-0">
             <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Featured Projects</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project Card 1 -->
@@ -248,24 +258,14 @@
                     <div class="p-6">
                         <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">BI OJK Hackathon 2025</h3>
                         <p class="text-sm mt-2 mb-4 text-gray-600 dark:text-gray-400">Developed a fintech solution prototype during the Bank Indonesia & OJK Hackathon.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">Fintech</span>
-                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">UI/UX</span>
-                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full dark:bg-purple-900 dark:text-purple-300">Hackathon</span>
-                        </div>
                     </div>
                 </a>
                 <!-- Project Card 2 -->
                 <a href="#" class="project-item block bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer" data-src="./P-Hackathon Purse.pdf">
-                    <img src="https://placehold.co/600x400/bfdbfe/1e3a8a?text=Hackathon+Purse" alt="Hackathon Purse Project" class="w-full h-48 object-cover">
+                    <img src="https://placehold.co/600x400/bfdbfe/1e3a8a?text=Hackathon+Purse" alt="Pennywise" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">Hackathon Purse</h3>
-                        <p class="text-sm mt-2 mb-4 text-gray-600 dark:text-gray-400">Designed and prototyped a digital wallet application focused on security and ease of use.</p>
-                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full dark:bg-red-900 dark:text-red-300">e-Wallet</span>
-                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">Figma</span>
-                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full dark:bg-purple-900 dark:text-purple-300">Hackathon</span>
-                        </div>
+                        <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">Fintech Hackathon</h3>
+                        <p class="text-sm mt-2 mb-4 text-gray-600 dark:text-gray-400">First Runner Up for designed and prototyped a digital wallet application focused on security and ease of use during Student Exchange Hackathon with Universiti Teknologi PETRONAS.</p>
                     </div>
                 </a>
                 <!-- Project Card 3 -->
@@ -274,17 +274,13 @@
                     <div class="p-6">
                         <h3 class="font-bold text-lg text-primary-light dark:text-primary-dark">LearnPath Platform</h3>
                         <p class="text-sm mt-2 mb-4 text-gray-600 dark:text-gray-400">A conceptual project for a personalized educational platform that suggests learning paths based on user goals.</p>
-                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full dark:bg-green-900 dark:text-green-300">Edutech</span>
-                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">UI/UX</span>
-                        </div>
                     </div>
                 </a>
             </div>
         </section>
 
         <!-- Certificates Section -->
-        <section id="certificates" class="py-20">
+        <section id="certificates" class="py-20 opacity-0">
             <h2 class="text-3xl font-bold text-center text-primary-light dark:text-primary-dark mb-12">Licenses & Certificates</h2>
             <div class="max-w-xl mx-auto">
                 <a href="#" class="certificate-item" data-src="https://placehold.co/1200x800/f1f5f9/111827?text=Junior+Cyber+Security+Certificate">
@@ -446,6 +442,28 @@
         document.querySelector('.project-modal-close').addEventListener('click', closeProjectModal);
         projectModalOverlay.querySelector('.modal-overlay-bg').addEventListener('click', closeProjectModal);
 
+    </script>
+
+    <script>
+        // Animate on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('timeline-item')) {
+                        if (entry.target.classList.contains('flex-row-reverse')) {
+                             entry.target.classList.add('animate-slide-in-left');
+                        } else {
+                             entry.target.classList.add('animate-slide-in-right');
+                        }
+                    } else {
+                        entry.target.classList.add('animate-fade-in-up');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('#about, #experience, #projects, #certificates, .timeline-item').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
