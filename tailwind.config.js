@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class', 
+  darkMode: 'class',
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Pastikan .tsx ada di sini
+    "./src/**/*.{js,ts,jsx,tsx}", // Spasi di sini sudah benar
   ],
   theme: {
     extend: {

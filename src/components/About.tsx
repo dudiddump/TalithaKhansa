@@ -21,7 +21,7 @@ export default function About() {
         </div>
         <div className="md:col-span-3">
           <p className="text-lg text-gray-800 dark:text-gray-200">
-            5th semester Information Systems & Technology student (GPA 3.95) at Cyber University. Currently serving as President of the Student Council (BEM). I thrive in collaborative environments, combining my passion for data, technology, and leadership. Possesses a strong foundation in technology with practical skills in web development, cybersecurity, and data, complemented by proven leadership and collaborative abilities.
+            Hi, I’m Talitha Khansa Fahira, but you can just call me Talitha. I’m a fifth-semester Information Systems & Technology student (GPA 3.95) at Cyber University and currently serving as President of the Student Council (BEM). I love working with people and exploring how data and technology can create real impact. I’m especially interested in web development, cybersecurity, and data analytics, and I’m always up for learning something new or building something meaningful with a great team.
           </p>
         </div>
       </div>
