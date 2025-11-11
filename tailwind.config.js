@@ -3,7 +3,7 @@ export default {
   darkMode: 'class',
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Spasi di sini sudah benar
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
