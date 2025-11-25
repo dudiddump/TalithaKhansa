@@ -1,30 +1,27 @@
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
 
-// Tentukan tipe props untuk Modal
 interface ModalProps {
   isOpen: boolean;
-  onClose: () => void; // Fungsi yang tidak mengembalikan apa-apa
+  onClose: () => void; 
   imgSrc: string;
 }
 
 export default function Modal({ isOpen, onClose, imgSrc }: ModalProps) {
   useEffect(() => {
-    // Tambahkan/hapus kelas 'modal-active' dari body
     if (isOpen) {
       document.body.classList.add('modal-active');
     } else {
       document.body.classList.remove('modal-active');
     }
     
-    // Cleanup function
     return () => {
       document.body.classList.remove('modal-active');
     };
-  }, [isOpen]); // Jalankan effect ini setiap kali isOpen berubah
+  }, [isOpen]);
 
   if (!isOpen) {
-    return null; // Jangan render apapun jika modal tidak terbuka
+    return null; 
   }
 
   return (

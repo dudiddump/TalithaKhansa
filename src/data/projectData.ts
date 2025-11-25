@@ -53,6 +53,6 @@ export const projects: Project[] = [
     title: "PortSwigger Lab Report (Pentest)",
     description: "University Project: Performed lab-based vulnerability assessments (OWASP) using Burp Suite and Nmap.",
     img: "https://placehold.co/600x400/334155/e2e8f0?text=Pentest+Report",
-    link: "Medium-PortSwigger LabReport-Pentest"
+    link: "https://medium.com/@its.ithaaa/cyber-security-report-lab-port-swigger-2a2daa2f23cc"
   }
 ];
