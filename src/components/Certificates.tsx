@@ -3,6 +3,11 @@ import { useInView } from 'react-intersection-observer';
 import { ShieldCheck } from 'lucide-react';
 import Modal from './Modal';
 
+import certCyberSecurity from '../assets/cert-cyber-security.jpg';
+import certDataAnalytics from '../assets/cert-data-analytics.jpg';
+import certWebDev from '../assets/cert-web-dev.jpg';
+import certCyberAwareness from '../assets/cert-cyber-awareness.jpg';
+
 interface Certificate {
   title: string;
   issuer: string;
@@ -25,28 +30,28 @@ export default function Certificates() {
       issuer: 'BNSP',
       description:
         'Completed intensive training in information protection, internet security, access control, log management, and policy implementation.',
-      imgSrc: 'https://drive.google.com/uc?export=view&id=1mXXX',
+      imgSrc: certCyberSecurity,
     },
     {
       title: 'Data Analytics Fundamentals',
       issuer: 'Google',
       description:
         'Learned to collect, clean, and analyze data using spreadsheets, SQL, and visualization tools for informed decision-making.',
-      imgSrc: 'https://drive.google.com/uc?export=view&id=1yYYY',
+      imgSrc: certDataAnalytics,
     },
     {
       title: 'Web Development Bootcamp',
       issuer: 'Dicoding Indonesia',
       description:
         'Developed responsive web apps using HTML, CSS, JavaScript, and React, emphasizing clean code and user-centered design.',
-      imgSrc: 'https://drive.google.com/uc?export=view&id=1zZZZ',
+      imgSrc: certWebDev,
     },
     {
       title: 'Cyber Security Awareness',
       issuer: 'Cyber Academy',
       description:
         'Gained practical understanding of network defense, risk management, and security best practices.',
-      imgSrc: 'https://drive.google.com/uc?export=view&id=1aAAA',
+      imgSrc: certCyberAwareness,
     },
   ];
 
