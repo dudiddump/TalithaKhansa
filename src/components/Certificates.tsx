@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ShieldCheck } from 'lucide-react';
 import Modal from './Modal';
 
-// Tipe data untuk setiap sertifikat
 interface Certificate {
   title: string;
   issuer: string;
@@ -20,14 +19,13 @@ export default function Certificates() {
     threshold: 0.1,
   });
 
-  // Daftar sertifikat — ganti imgSrc dengan link gambar langsung dari Google Drive
   const certificates: Certificate[] = [
     {
       title: 'Junior Cyber Security',
       issuer: 'BNSP',
       description:
         'Completed intensive training in information protection, internet security, access control, log management, and policy implementation.',
-      imgSrc: 'https://drive.google.com/uc?export=view&id=1mXXX', // Ganti ID dengan ID file asli
+      imgSrc: 'https://drive.google.com/uc?export=view&id=1mXXX',
     },
     {
       title: 'Data Analytics Fundamentals',
