@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  FaNodeJs, FaDatabase, FaLock, FaFileExcel,
+  FaNodeJs, FaLock, FaFileExcel,
   FaFigma, FaVideo, 
   FaJava, FaPhp, FaAndroid
 } from "react-icons/fa";
