@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ShieldCheck, Award, Maximize2, FileCheck } from 'lucide-react';
 import Modal from './Modal';
-import certCyberSecurity from '../assets/CyberUniv.png'; // Pastikan path ini benar sesuai strukturmu
 
 interface Certificate {
   title: string;
@@ -28,7 +27,6 @@ export default function Certificates() {
         'Completed intensive training in information protection, internet security, access control, log management, and policy implementation.',
       imgSrc: certCyberSecurity,
     },
-    // Tambahkan sertifikat lain di sini nanti
   ];
 
   const handleOpenModal = (cert: Certificate) => {
@@ -49,7 +47,6 @@ export default function Certificates() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        {/* Header */}
         <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center p-3 mb-4 rounded-xl bg-green-500/10 text-green-500 ring-1 ring-green-500/50">
                 <ShieldCheck className="w-6 h-6" />
@@ -69,11 +66,9 @@ export default function Certificates() {
               onClick={() => handleOpenModal(cert)}
               className="group relative bg-white dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-slate-700 p-1 cursor-pointer hover:-translate-y-2 transition-transform duration-300"
             >
-              {/* Glowing Border Gradient */}
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-500 rounded-2xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-500 -z-10"></div>
               
               <div className="h-full bg-white dark:bg-[#0b1120] rounded-xl p-6 relative overflow-hidden">
-                {/* Decoration Lines */}
                 <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-green-500/10 to-transparent rounded-bl-full"></div>
                 
                 <div className="flex items-start space-x-4 relative z-10">
