@@ -1,12 +1,13 @@
 import React from 'react';
 import {
-  FaNodeJs, FaPython, FaDatabase, FaLock,
-  FaFigma, FaUserTie, FaJava, FaPhp, FaAndroid
+  FaNodeJs, FaDatabase, FaLock, FaFileExcel,
+  FaFigma, FaVideo, 
+  FaJava, FaPhp, FaAndroid
 } from "react-icons/fa";
 import {
   SiTailwindcss, SiMysql, SiNextdotjs, 
   SiMongodb, SiSupabase, SiBurpsuite, SiCplusplus, 
-  SiCanva, SiKalilinux
+  SiCanva, SiKalilinux, SiBootstrap
 } from "react-icons/si";
 import { MdOutlineSecurity } from "react-icons/md";
 import { Code2 } from 'lucide-react';
@@ -21,6 +22,7 @@ const Skills: React.FC = () => {
         { name: "React / Next.js", icon: <SiNextdotjs className="text-white" /> },
         { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
         { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
+        { name: "Bootstrap", icon: <SiBootstrap className="text-purple-500" /> },
         { name: "PHP (CI3)", icon: <FaPhp className="text-indigo-400" /> },
         { name: "Java", icon: <FaJava className="text-red-500" /> },
         { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
@@ -43,22 +45,21 @@ const Skills: React.FC = () => {
       description: "Managing integrity & visualization for insights.",
       borderColor: "group-hover:border-purple-500",
       skills: [
+        { name: "Excel", icon: <FaFileExcel className="text-yellow-500" /> }, 
         { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
         { name: "Supabase", icon: <SiSupabase className="text-emerald-400" /> },
-        { name: "Python", icon: <FaPython className="text-yellow-500" /> },
         { name: "Analytics", icon: <FaDatabase className="text-purple-400" /> },
       ],
     },
     {
-      title: "Design & Lead",
-      description: "Creative design tools & organizational leadership.",
+      title: "Design",
+      description: "Creative design tools",
       borderColor: "group-hover:border-pink-500",
       skills: [
         { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
         { name: "Canva", icon: <SiCanva className="text-blue-400" /> },
-        { name: "Leadership", icon: <FaUserTie className="text-slate-600 dark:text-slate-300" /> },
-        { name: "Event Mgmt", icon: <FaUserTie className="text-orange-400" /> },
+        { name: "CapCut", icon: <FaVideo className="text-red-500" /> },
       ],
     },
   ];
@@ -66,9 +67,8 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-24 relative overflow-hidden bg-slate-50 dark:bg-[#0b1120] transition-colors duration-500"
+      className="py-20 relative overflow-hidden bg-slate-50 dark:bg-[#0b1120] transition-colors duration-500"
     >
-        {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -77,7 +77,7 @@ const Skills: React.FC = () => {
                 <Code2 className="w-6 h-6" />
             </div>
             <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-gray-900 dark:text-white tracking-wide">
-            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Arsenal</span>
+            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Skills</span>
             </h2>
         </div>
 
