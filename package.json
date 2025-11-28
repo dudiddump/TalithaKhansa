@@ -5,8 +5,8 @@
   "homepage": "https://dudiddump.github.io/TalithaKhansa",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --open /TalithaKhansa/", 
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",

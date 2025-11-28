@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ShieldCheck, Award, Maximize2, FileCheck } from 'lucide-react';
 import Modal from './Modal';
+import certCyberSec from '../assets/CerCyberSec.jpg';
 
 interface Certificate {
   title: string;
@@ -25,7 +26,7 @@ export default function Certificates() {
       issuer: 'BNSP',
       description:
         'Completed intensive training in information protection, internet security, access control, log management, and policy implementation.',
-      imgSrc: certCyberSecurity,
+      imgSrc: certCyberSec,
     },
   ];
 
