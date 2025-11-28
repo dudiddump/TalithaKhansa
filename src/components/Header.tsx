@@ -17,11 +17,24 @@ export default function Header() {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Education', href: '#education' }, // Education penting buat mahasiswa
+    { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' }, // Tambahin ini biar lengkap
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  // FUNGSI SMOOTH SCROLL
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault(); // Matikan lompatan default
+    const element = document.querySelector(href);
+    if (element) {
+        // Tutup menu mobile dulu kalau lagi kebuka
+        setIsMobileMenuOpen(false);
+        // Scroll halus ke elemen tujuannya
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <header 
@@ -34,16 +47,22 @@ export default function Header() {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold text-primary-light dark:text-primary-dark tracking-tighter hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+        <a 
+            href="#" 
+            onClick={(e) => handleSmoothScroll(e, '#hero')} // Klik logo balik ke atas smooth
+            className="text-2xl font-bold text-primary-light dark:text-primary-dark tracking-tighter hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" 
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+        >
           TKF<span className="text-cyan-500">.</span>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
           {navLinks.map((link) => (
             <a 
               key={link.name}
-              href={link.href} 
+              href={link.href}
+              onClick={(e) => handleSmoothScroll(e, link.href)} // Panggil fungsi smooth scroll
               className="text-sm font-medium uppercase tracking-wider hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors relative group"
             >
               {link.name}
@@ -74,8 +93,8 @@ export default function Header() {
               <a 
                 key={link.name}
                 href={link.href} 
+                onClick={(e) => handleSmoothScroll(e, link.href)} // Smooth scroll juga di mobile
                 className="text-lg font-medium hover:text-cyan-500 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)} // Tutup menu pas diklik
               >
                 {link.name}
               </a>

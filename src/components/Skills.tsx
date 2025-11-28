@@ -49,7 +49,6 @@ const Skills: React.FC = () => {
         { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
         { name: "Supabase", icon: <SiSupabase className="text-emerald-400" /> },
-        { name: "Analytics", icon: <FaDatabase className="text-purple-400" /> },
       ],
     },
     {
@@ -58,8 +57,8 @@ const Skills: React.FC = () => {
       borderColor: "group-hover:border-pink-500",
       skills: [
         { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
-        { name: "Canva", icon: <SiCanva className="text-blue-400" /> },
-        { name: "CapCut", icon: <FaVideo className="text-red-500" /> },
+        { name: "Canva", icon: <SiCanva className="text-indigo-400" /> },
+        { name: "CapCut", icon: <FaVideo className="text-slate-300" /> },
       ],
     },
   ];
@@ -71,8 +70,8 @@ const Skills: React.FC = () => {
     >
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
+      <div className="w-full px-10 md:px-50 relative z-10">
+        <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center p-3 mb-4 rounded-full bg-cyan-500/10 text-cyan-500 ring-1 ring-cyan-500/50">
                 <Code2 className="w-6 h-6" />
             </div>
@@ -81,13 +80,12 @@ const Skills: React.FC = () => {
             </h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {categories.map((category, i) => (
             <div
               key={i}
               className={`group relative bg-white dark:bg-slate-900/60 backdrop-blur-xl p-8 rounded-3xl border border-gray-200 dark:border-slate-800 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${category.borderColor} hover:border-opacity-50`}
             >
-              {/* Corner Accents */}
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="w-2 h-2 rounded-full bg-cyan-500 animate-ping"></div>
               </div>

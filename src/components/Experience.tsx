@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer';
 import { Briefcase, Trophy, RotateCw } from 'lucide-react';
 import { experiences } from '../data/experienceData'; // Import data dari file terpisah
 
-// --- KOMPONEN KARTU FLIP ---
 const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const { ref, inView } = useInView({
@@ -43,27 +42,22 @@ const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
         >
           
           {/* === FRONT SIDE (Tampilan Depan: Info Utama) === */}
-          {/* backface-visibility:hidden Wajib ada biar sisi belakang ga tembus pandang */}
           <div className="absolute inset-0 [backface-visibility:hidden]">
             <div className="h-full p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-gray-200 dark:border-slate-800 shadow-lg flex flex-col justify-center group hover:border-cyan-500/50 transition-all">
                
-               {/* Glowing Border Hover */}
                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${exp.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
 
                <div className="relative z-10 text-center space-y-2">
-                  {/* Icon besar di tengah */}
                   <div className={`w-12 h-12 mx-auto rounded-full bg-gradient-to-br ${exp.color} p-0.5 shadow-md`}>
-                    <div className="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
+                    <div className="w-full h-full dark:bg-slate-900 rounded-full flex items-center justify-center">
                         {exp.icon}
                     </div>
                   </div>
                   
-                  {/* Job Title */}
                   <h3 className="text-lg font-bold font-orbitron text-gray-900 dark:text-white leading-tight">
                     {exp.title}
                   </h3>
                   
-                  {/* Company & Date */}
                   <div className="flex flex-col items-center gap-1">
                     <div className="flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-400">
                         <Briefcase className="w-3.5 h-3.5" />
@@ -82,12 +76,9 @@ const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
             </div>
           </div>
 
-          {/* === BACK SIDE (Tampilan Belakang: Pencapaian) === */}
-          {/* Sisi belakang harus diputar 180 derajat dulu */}
           <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
             <div className={`h-full p-5 rounded-2xl bg-gradient-to-br ${exp.color} text-white shadow-xl flex flex-col justify-center relative overflow-hidden border border-white/20`}>
                 
-                {/* Background Pattern */}
                 <div className="absolute inset-0 bg-black/20 bg-[size:20px_20px] bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)]"></div>
                 
                 <div className="relative z-10">
@@ -127,13 +118,11 @@ export default function Experience() {
         inView ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      {/* Background Ambience */}
       <div className="absolute left-0 top-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[128px] pointer-events-none"></div>
       <div className="absolute right-0 bottom-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[128px] pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-4 md:px-6 relative z-10">
         
-        {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center p-3 mb-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 shadow-lg shadow-cyan-500/5">
             <Briefcase className="w-6 h-6 text-cyan-500" />
@@ -147,10 +136,8 @@ export default function Experience() {
         </div>
 
         <div className="relative">
-          {/* Garis Tengah (Connecting Line) */}
           <div className="absolute left-[19px] md:left-1/2 w-0.5 h-full bg-gradient-to-b from-transparent via-cyan-500/30 to-transparent transform md:-translate-x-1/2 z-0"></div>
 
-          {/* List Items */}
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <ExperienceItem key={index} exp={exp} index={index} />

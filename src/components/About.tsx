@@ -16,12 +16,9 @@ export default function About() {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
     >
-      {/* --- CYBER BACKGROUND --- */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] -z-10"></div>
-
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        
         <div className="flex items-center gap-3 mb-16 justify-center">
             <Cpu className="w-8 h-8 text-cyan-500 animate-pulse" />
             <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-400">
@@ -59,14 +56,14 @@ export default function About() {
                 </div>
 
                 <p className="text-lg text-gray-800 dark:text-gray-200 leading-relaxed font-sans">
-                  Hi, I’m <span className="font-bold text-cyan-600 dark:text-cyan-400">Talitha Khansa Fahira</span>.
+                  Hi, I’m <span className="font-bold text-cyan-600 dark:text-cyan-400">Talitha Khansa Fahira</span>. 
                   <br className="hidden md:block" />
                   I’m a 5th semester <span className="font-semibold text-slate-700 dark:text-slate-300">Information Systems & Technology</span> student 
-                  at <span className="font-semibold text-slate-700 dark:text-slate-300">Cyber University</span> with a <span className="font-bold text-green-600 dark:text-green-400 font-mono">GPA of 3.95/4.00</span>.
+                  at <span className="font-semibold text-orange-700 dark:text-orange-300">Cyber University</span> with a <span className="font-bold text-cyan-600 dark:text-cyan-400 font-mono">GPA of 3.95/4.00</span>.
                 </p>
                 
                 <p className="mt-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Currently serving as the <span className="font-bold text-purple-600 dark:text-purple-400">President of the Student Council (BEM)</span>, 
+                  Currently serving as the <span className="font-bold text-cyan-600 dark:text-cyan-400">President of the Student Council (BEM)</span>, 
                   I have honed strong <span className="font-medium text-cyan-600 dark:text-cyan-400">leadership, analytical, and creative skills</span>.
                   I thrive in collaborative environments, blending my passion for data and technology.
                 </p>

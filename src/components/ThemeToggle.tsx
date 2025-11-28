@@ -1,33 +1,37 @@
 import { useState, useEffect } from 'react';
+import { Sun, Moon, X } from 'lucide-react';
+
 const getInitialTheme = (): string => {
   if (typeof window !== 'undefined' && window.localStorage) {
-    
     const storedPrefs = window.localStorage.getItem('color-theme');
     if (typeof storedPrefs === 'string') {
       return storedPrefs;
     }
-
     const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
     if (userMedia.matches) {
       return 'dark';
     }
   }
-  
   return 'light'; 
 };
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<string>(getInitialTheme);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      setShowPopup(false); // Sembunyikan popup kalau dark mode
     } else {
       document.documentElement.classList.remove('dark');
+      // Tampilkan popup sebentar saat masuk light mode
+      setShowPopup(true);
+      // Opsional: Hilang otomatis setelah 5 detik
+      const timer = setTimeout(() => setShowPopup(false), 5000);
+      return () => clearTimeout(timer);
     }
-    
     window.localStorage.setItem('color-theme', theme);
-
   }, [theme]); 
   
   const toggleTheme = () => {
@@ -35,28 +39,36 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button onClick={toggleTheme} id="theme-toggle" className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-      
-      <svg 
-        id="theme-toggle-dark-icon" 
-        className={`${theme === 'light' ? '' : 'hidden'} h-5 w-5`} 
-        fill="currentColor" 
-        viewBox="0 0 20 20" 
-        xmlns="http://www.w3.org/2000/svg"
+    <div className="relative">
+      <button 
+        onClick={toggleTheme} 
+        id="theme-toggle" 
+        className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors relative z-50"
+        aria-label="Toggle Theme"
       >
-        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-      </svg>
-      
-      <svg 
-        id="theme-toggle-light-icon" 
-        className={`${theme === 'dark' ? '' : 'hidden'} h-5 w-5`} 
-        fill="currentColor" 
-        viewBox="0 0 20 20" 
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.464 14.95l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414z"></path>
-      </svg>
+        {theme === 'light' ? (
+             <Sun className="w-5 h-5 text-yellow-500" />
+        ) : (
+             <Moon className="w-5 h-5 text-cyan-400" />
+        )}
+      </button>
 
-    </button>
+      {/* POPUP LIGHT MODE */}
+      {showPopup && (
+        <div className="absolute top-12 right-0 w-48 p-3 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-gray-200 dark:border-slate-700 animate-bounce-slow z-40">
+           {/* Panah Kecil ke Atas */}
+           <div className="absolute -top-1.5 right-3 w-3 h-3 bg-white dark:bg-slate-800 border-t border-l border-gray-200 dark:border-slate-700 transform rotate-45"></div>
+           
+           <div className="relative flex items-start gap-2">
+              <p className="text-xs font-medium text-gray-700 dark:text-gray-200">
+                <span className="font-bold text-cyan-600">Tip:</span> Dark mode looks better for the cyber vibe!
+              </p>
+              <button onClick={() => setShowPopup(false)} className="text-gray-400 hover:text-gray-600">
+                <X className="w-3 h-3" />
+              </button>
+           </div>
+        </div>
+      )}
+    </div>
   );
 }
