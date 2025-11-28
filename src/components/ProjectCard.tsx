@@ -1,5 +1,5 @@
 import type { Project } from '../types';
-import { ExternalLink, Github, FolderOpen } from 'lucide-react';
+import { ExternalLink, FolderOpen } from 'lucide-react';
 
 export default function ProjectCard({ title, description, img, link }: Project) {
   const isLinkAvailable = link && link !== "#";

@@ -1,7 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 import { projects } from '../data/projectData';
 import ProjectCard from './ProjectCard';
-import { Database, Code } from 'lucide-react';
+import { Database } from 'lucide-react';
 
 export default function Projects() {
   const { ref, inView } = useInView({

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ShieldCheck, Award, Maximize2, FileCheck } from 'lucide-react';
 import Modal from './Modal';
-import certCyberSec from '../assets/CerCyberSec.jpg';
+import certCyberSec from '../assets/CertCyberSec.jpg';
 
 interface Certificate {
   title: string;

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export interface Project {
   title: string;
@@ -13,5 +13,5 @@ export interface Experience {
   dates: string;
   description: string[];
   icon: ReactNode;
-  color: string; // Tambahan untuk styling gradient
+  color: string;
 }
