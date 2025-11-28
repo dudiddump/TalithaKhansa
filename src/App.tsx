@@ -7,13 +7,12 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-secondary-light dark:bg-secondary-dark text-text-light dark:text-text-dark transition-colors duration-300">
+    <div className="min-h-screen bg-secondary-light dark:bg-secondary-dark text-text-light dark:text-text-dark transition-colors duration-300 flex flex-col">
       <Header />
-      <main className="container mx-auto px-6 pt-24 md:pt-32">
+      <main className="flex-grow container mx-auto px-6 pt-24 md:pt-32 space-y-24 mb-24">
         <Hero />
         <About />
         <Education />
@@ -22,8 +21,7 @@ function App() {
         <Projects />
         <Certificates />
         <Contact />
-      </main>
-      <Footer />
+        </main>
     </div>
   );
 }
