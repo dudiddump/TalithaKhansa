@@ -1,4 +1,4 @@
-import { Linkedin, Github, Globe, FileText, Terminal } from 'lucide-react';
+import { Linkedin, Github, Instagram, FileText, Terminal } from 'lucide-react';
 import ResumePDF from '../assets/Resume.pdf'; 
 
 export default function Hero() {
@@ -57,7 +57,7 @@ export default function Hero() {
         <div className="flex flex-wrap justify-center items-center gap-4 pt-8">
           <SocialLink href="https://linkedin.com/in/talithakhansa" icon={<Linkedin className="w-5 h-5" />} label="LinkedIn" />
           <SocialLink href="https://github.com/dudiddump" icon={<Github className="w-5 h-5" />} label="GitHub" />
-          <SocialLink href="https://github.com/dudiddump/TalithaKhansa" icon={<Globe className="w-5 h-5" />} label="Repo" />
+          <SocialLink href="https://www.instagram.com/talithakf_26" icon={<Instagram className="w-5 h-5" />} label="Instagram" />
           <SocialLink href={ResumePDF} icon={<FileText className="w-5 h-5" />} label="Resume" isPrimary />
         </div>
       </div>

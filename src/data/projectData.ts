@@ -5,7 +5,7 @@ export const projects: Project[] = [
     title: "BudayaGo / Kawi App (Team Leader)",
     description: "Android app using Android Studio to promote and preserve Indonesian culture through digital exploration.",
     img: "https://placehold.co/600x400/fecdd3/be123c?text=Kawi+App",
-    link: "Kawi-PitchDeck"
+    link: "https://www.canva.com/design/DAG3QGvxyvs/LjbD1YnAwHRBZ236hAnpzw/view?utm_content=DAG3QGvxyvs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc97e2801ee"
   },
   {
     title: "PM-BEM 2025 - Grant Awardee",
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     title: "Lutharti Restaurant System (C++)",
     description: "University Project: Developed a restaurant ordering system implementing object-oriented programming.",
     img: "https://placehold.co/600x400/e0e7ff/3730a3?text=C%2B%2B+Project",
-    link: "https://github.com/dudiddump/Pemesanan Makanan-CPP"
+    link: "https://github.com/dudiddump/Pemesanan"
   },
   {
     title: "LearnPath (Java & Figma)",
