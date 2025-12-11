@@ -19,19 +19,18 @@ export default function Header() {
     { name: 'About', href: '#about' },
     { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' }, // Tambahin ini biar lengkap
+    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Certification', href: '#certificates'},
     { name: 'Contact', href: '#contact' },
   ];
 
   // FUNGSI SMOOTH SCROLL
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault(); // Matikan lompatan default
+    e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-        // Tutup menu mobile dulu kalau lagi kebuka
         setIsMobileMenuOpen(false);
-        // Scroll halus ke elemen tujuannya
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
@@ -62,7 +61,7 @@ export default function Header() {
             <a 
               key={link.name}
               href={link.href}
-              onClick={(e) => handleSmoothScroll(e, link.href)} // Panggil fungsi smooth scroll
+              onClick={(e) => handleSmoothScroll(e, link.href)} 
               className="text-sm font-medium uppercase tracking-wider hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors relative group"
             >
               {link.name}
@@ -93,7 +92,7 @@ export default function Header() {
               <a 
                 key={link.name}
                 href={link.href} 
-                onClick={(e) => handleSmoothScroll(e, link.href)} // Smooth scroll juga di mobile
+                onClick={(e) => handleSmoothScroll(e, link.href)} 
                 className="text-lg font-medium hover:text-cyan-500 transition-colors"
               >
                 {link.name}
