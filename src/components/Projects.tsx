@@ -1,61 +1,69 @@
+import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { projects } from '../data/projectData';
 import ProjectCard from './ProjectCard';
-import { Database } from 'lucide-react';
+import { Database, Shield, Code, Layout, Box } from 'lucide-react';
 
 export default function Projects() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeTab, setActiveTab] = useState('All');
+  
+  const tabs = [
+    { name: 'All', icon: <Database size={16} /> },
+    { name: 'Cybersecurity', icon: <Shield size={16} /> },
+    { name: 'Web Development', icon: <Code size={16} /> },
+    { name: 'UI/UX Design', icon: <Layout size={16} /> },
+    { name: 'Other', icon: <Box size={16} /> }
+  ];
+
+  const filteredProjects = activeTab === 'All' 
+    ? projects 
+    : projects.filter(p => p.categories.includes(activeTab));
+
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section 
-        id="projects" 
-        ref={ref} 
-        className={`py-24 relative bg-gray-50/50 dark:bg-[#0b1120]/50 transition-all duration-1000 ${
-            inView ? 'opacity-100' : 'opacity-0'
-        }`}
-    >
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px)] dark:bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
-
+    
+    <section id="projects" ref={ref} className={`py-24 relative bg-gray-50/50 dark:bg-[#0b1120]/50 transition-all duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`}>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* Header */}
-        <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center p-3 mb-4 rounded-xl bg-purple-500/10 text-purple-500 ring-1 ring-purple-500/50">
-                <Database className="w-6 h-6" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-gray-900 dark:text-white tracking-wide">
+        <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-gray-900 dark:text-white">
                 Mission <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Modules</span>
             </h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-400 font-mono text-sm max-w-2xl mx-auto">
-                // ARCHIVE_ACCESS: GRANTED<br/>
-                Selected works and technical achievements deployed in the field.
-            </p>
+            <p className="mt-4 text-gray-500 font-mono text-xs uppercase tracking-widest">// CLASSIFIED_PROJECTS_DATABASE</p>
         </div>
 
-        {/* Project Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
+          {tabs.map((tab) => (
+            <button
+              key={tab.name}
+              onClick={() => setActiveTab(tab.name)}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-mono text-[10px] font-bold uppercase transition-all duration-300 border 
+                ${activeTab === tab.name 
+                  ? 'bg-purple-600 border-purple-500 text-white shadow-xl shadow-purple-500/40 translate-y-[-2px]' 
+                  : 'bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-800 text-gray-500 hover:border-purple-500/50'
+                }`}
+            >
+              {tab.icon}
+              {tab.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid Project dengan Animasi Filter */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[500px]">
+          {filteredProjects.map((project, index) => (
             <div 
-                key={index}
-                className="opacity-0 animate-fade-in-up"
-                style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'forwards' }}
+                key={`${activeTab}-${project.title}`}
+                className="animate-in fade-in slide-in-from-bottom-8 duration-500"
+                style={{ animationDelay: `${index * 100}ms` }}
             >
                 <ProjectCard {...project} />
             </div>
           ))}
         </div>
-
-        {/* Footer Decoration */}
-        <div className="mt-16 flex items-center justify-center gap-2 opacity-50">
-            <div className="h-1 w-1 bg-cyan-500 rounded-full animate-ping"></div>
-            <span className="font-mono text-xs text-cyan-500">END OF STREAM</span>
-            <div className="h-1 w-1 bg-cyan-500 rounded-full animate-ping"></div>
-        </div>
-
       </div>
     </section>
   );

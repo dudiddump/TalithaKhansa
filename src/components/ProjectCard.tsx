@@ -1,67 +1,72 @@
 import type { Project } from '../types';
-import { ExternalLink, FolderOpen } from 'lucide-react';
+import { ExternalLink, Shield, Code, Layout, Box, Maximize2 } from 'lucide-react';
 
-export default function ProjectCard({ title, description, img, link }: Project) {
+interface ProjectCardProps extends Project {
+  onOpenDetails: (project: Project) => void;
+}
+
+export default function ProjectCard(props: ProjectCardProps) {
+  const { title, description, img, link, categories, tech, tools, onOpenDetails } = props;
   const isLinkAvailable = link && link !== "#";
 
   return (
-    <a
-      href={isLinkAvailable ? link : undefined} 
-      target={isLinkAvailable ? "_blank" : undefined}
-      rel="noopener noreferrer"
-      className={`group relative block h-full ${!isLinkAvailable ? 'cursor-default' : 'cursor-pointer'}`}
+    <div
+      onClick={() => onOpenDetails(props)}
+      className="group relative block h-full cursor-pointer"
     >
-      {/* Glow Effect behind card */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-40 transition duration-500"></div>
 
-      <div className="relative h-full bg-white dark:bg-[#0f172a] rounded-2xl border border-gray-200 dark:border-slate-800 overflow-hidden flex flex-col transition-transform duration-300 group-hover:-translate-y-1">
+      <div className="relative h-full bg-white dark:bg-[#0f172a] rounded-2xl border border-gray-300 dark:border-slate-600/50 overflow-hidden flex flex-col transition-all duration-300 group-hover:-translate-y-2">
         
-        {/* Image Container with Tech Overlay */}
         <div className="relative h-48 overflow-hidden">
-            <div className="absolute inset-0 bg-cyan-900/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+            <img src={img} alt={title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
             
-            {/* Scanline Effect on Hover */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-400/10 to-transparent translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000 z-20 pointer-events-none"></div>
-
-            <img 
-                src={img} 
-                alt={title} 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-            />
-            
-            {/* Type Badge */}
-            <div className="absolute top-3 right-3 z-30">
-                <span className="px-3 py-1 text-xs font-bold font-mono text-white bg-black/60 backdrop-blur-md border border-white/20 rounded-full flex items-center gap-2">
-                    <FolderOpen className="w-3 h-3 text-cyan-400" />
-                    PROJECT
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20">
+                <span className="flex items-center gap-2 text-white font-mono text-xs font-bold bg-cyan-600 px-4 py-2 rounded-full">
+                    <Maximize2 size={14} /> VIEW DETAILS
                 </span>
+            </div>
+
+            <div className="absolute top-3 left-3 z-30 flex flex-wrap gap-2">
+                {categories?.map((cat) => (
+                    <span key={cat} className="px-2 py-1 text-[9px] font-bold font-mono text-white bg-black/70 backdrop-blur-md border border-white/10 rounded flex items-center gap-1 uppercase">
+                        {cat}
+                    </span>
+                ))}
             </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6 flex flex-col flex-grow relative">
-            {/* Grid Pattern in content bg */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none"></div>
-
-            <h3 className="relative z-10 text-xl font-bold font-orbitron text-gray-900 dark:text-white group-hover:text-cyan-500 transition-colors mb-2">
+        <div className="p-6 flex flex-col flex-grow">
+            <h3 className="text-xl font-bold font-orbitron text-gray-900 dark:text-white group-hover:text-cyan-500 mb-2 leading-tight">
                 {title}
             </h3>
-            
-            <p className="relative z-10 text-sm text-gray-600 dark:text-gray-400 flex-grow leading-relaxed font-mono">
+            <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3 mb-4 font-sans">
                 {description}
             </p>
 
-            {/* Footer / Action */}
-            <div className="relative z-10 mt-6 pt-4 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono font-medium text-gray-500 dark:text-gray-500">
-                <span>STATUS: {isLinkAvailable ? 'DEPLOYED' : 'ARCHIVED'}</span>
+            <div className="flex flex-wrap gap-1.5 mb-4">
+                {tech?.slice(0, 3).map((t) => (
+                    <span key={t} className="px-2 py-0.5 text-[9px] font-mono font-bold bg-cyan-500/10 text-cyan-600 border border-cyan-500/20 rounded">
+                        {t}
+                    </span>
+                ))}
+            </div>
+
+            <div className="mt-auto pt-4 border-t border-gray-100 dark:border-slate-800 flex justify-between items-center">
+                <span className="text-[10px] font-mono text-gray-400">STATUS: DEPLOYED [cite: 5]</span>
                 {isLinkAvailable && (
-                    <div className="flex items-center gap-1 text-cyan-600 dark:text-cyan-400 group-hover:translate-x-1 transition-transform">
-                        ACCESS <ExternalLink className="w-3 h-3" />
-                    </div>
+                    <a 
+                      href={link} 
+                      target="_blank" 
+                      onClick={(e) => e.stopPropagation()} 
+                      className="text-cyan-500 hover:text-cyan-400 transition-colors"
+                    >
+                        <ExternalLink size={16} />
+                    </a>
                 )}
             </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }

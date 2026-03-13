@@ -41,14 +41,14 @@ const Education = () => {
                 <div className="flex-grow space-y-4 text-center md:text-left w-full">
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-2">
                         <div>
-                            <h3 className="text-3xl font-bold font-orbitron text-gray-900 dark:text-white group-hover:text-red-500 transition-colors">
+                            <h3 className="text-3xl font-bold font-orbitron text-gray-900 dark:text-white group-hover:text-cyan-300 transition-colors">
                                 Cyber University
                             </h3>
                             <p className="text-lg font-medium text-gray-600 dark:text-gray-300 mt-1">
-                                Bachelor of Computer Science
+                                Bachelor of Computer Science (B.Cs)
                             </p>
                             <p className="text-sm text-cyan-600 dark:text-cyan-400 font-mono">
-                                Major in Information Systems & Technology
+                                Major : Information Systems & Technology
                             </p>
                         </div>
                         
@@ -59,7 +59,7 @@ const Education = () => {
                             </span>
                             <div className="inline-block px-4 py-1.5 bg-green-500/10 border border-green-500/30 rounded-lg">
                                 <span className="text-sm font-bold text-green-600 dark:text-green-400 font-mono tracking-wider">
-                                    GPA: 3.95 / 4.00
+                                    GPA: 3.96 / 4.00
                                 </span>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ const Education = () => {
                             {[
                                 "Data Analytics", 
                                 "Software Development", 
-                                "Database Systems", 
+                                "Database Systems",     
                                 "Cyber Security Fundamentals", 
                                 "UI/UX Design Principles"
                             ].map((course, idx) => (

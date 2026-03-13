@@ -47,13 +47,11 @@ export default function Hero() {
             </p>
         </div>
         
-        {/* --- 4. DESCRIPTION --- */}
-        <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed px-4 border-l-2 border-primary-light/50 dark:border-primary-dark/50 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
-          5th-semester student with a <span className="font-bold text-green-600 dark:text-green-400 font-mono bg-green-100 dark:bg-green-900/30 px-1 rounded">GPA 3.95</span>. 
-          President of Student Council (BEM) blending data, security, and creativity to build impactful digital solutions.
+        <p className="max-w-3xl mx-auto text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed px-3 text-left md:text-center">
+          Currently in my 6th semester with a <span className="font-bold text-cyan-600 dark:text-cyan-400 font-mono">GPA 3.96/4.00</span>. 
+          Focused on the intersection of Web Development and Information Security, aiming to create digital environments that are as secure as they are functional.
         </p>
 
-        {/* --- 5. SOCIAL BUTTONS (Glowing Hover) --- */}
         <div className="flex flex-wrap justify-center items-center gap-4 pt-8">
           <SocialLink href="https://linkedin.com/in/talithakhansa" icon={<Linkedin className="w-5 h-5" />} label="LinkedIn" />
           <SocialLink href="https://github.com/dudiddump" icon={<Github className="w-5 h-5" />} label="GitHub" />
@@ -65,7 +63,6 @@ export default function Hero() {
   );
 }
 
-// Component Tombol yang sudah dipercantik
 function SocialLink({ href, icon, label, isPrimary = false }: { href: string; icon: React.ReactNode; label: string, isPrimary?: boolean }) {
   return (
     <a 
@@ -81,7 +78,6 @@ function SocialLink({ href, icon, label, isPrimary = false }: { href: string; ic
         }
       `}
     >
-      {/* Efek kilat saat hover */}
       <div className="absolute inset-0 w-full h-full bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12"></div>
       
       <span className="relative z-10">{icon}</span>
