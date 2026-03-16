@@ -33,7 +33,6 @@ const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
 
       {/* Flip Card Container */}
       <div className={`ml-14 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-10' : 'md:pl-10'} [perspective:1000px]`}>
-        {/* UBAH: min-height dinaikkan agar kartu lebih tinggi */}
         <div 
           onClick={() => setIsFlipped(!isFlipped)}
           className={`relative w-full min-h-[260px] md:min-h-[240px] cursor-pointer transition-all duration-700 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
@@ -41,7 +40,6 @@ const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
           
           {/* Front Side */}
           <div className="absolute inset-0 [backface-visibility:hidden]">
-            {/* UBAH: Border di sini diperterang (dark:border-slate-600/50) */}
             <div className="h-full p-6 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-gray-300 dark:border-slate-600/50 shadow-lg flex flex-col justify-center group hover:border-cyan-500 transition-all">
                
                <div className="relative z-10 text-center space-y-4">
@@ -55,7 +53,7 @@ const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
                     <h3 className="text-xl font-bold font-orbitron text-gray-900 dark:text-white leading-tight">
                         {exp.title}
                     </h3>
-                    {/* Data RTIK Jakarta  */}
+
                     <div className="flex items-center justify-center gap-1.5 mt-2 text-sm font-semibold text-gray-600 dark:text-gray-300">
                         <Briefcase className="w-4 h-4" />
                         {exp.company}
@@ -76,7 +74,6 @@ const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
 
           {/* Back Side */}
           <div className="absolute inset-0 h-full w-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
-            {/* UBAH: Border di sini diperterang juga */}
             <div className={`h-full p-6 rounded-2xl bg-gradient-to-br ${exp.color} text-white shadow-2xl flex flex-col justify-center relative overflow-hidden border border-white/40`}>
                 <div className="absolute inset-0 bg-black/10 bg-[size:15px_15px] bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]"></div>
                 
@@ -104,7 +101,7 @@ const ExperienceItem = ({ exp, index }: { exp: any, index: number }) => {
 };
 
 export default function Experience() {
-  const { ref, inView } = useInView({
+  const { ref } = useInView({
     triggerOnce: true,
     threshold: 0.05,
   });

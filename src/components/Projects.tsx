@@ -5,7 +5,6 @@ import ProjectCard from './ProjectCard';
 import { Database, Shield, Code, Layout, Box } from 'lucide-react';
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeTab, setActiveTab] = useState('All');
   
   const tabs = [
@@ -52,7 +51,6 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Grid Project dengan Animasi Filter */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[500px]">
           {filteredProjects.map((project, index) => (
             <div 
@@ -60,7 +58,10 @@ export default function Projects() {
                 className="animate-in fade-in slide-in-from-bottom-8 duration-500"
                 style={{ animationDelay: `${index * 100}ms` }}
             >
-                <ProjectCard {...project} />
+                <ProjectCard
+                  {...project}
+                  onOpenDetails={() => {}}
+                />
             </div>
           ))}
         </div>

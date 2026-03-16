@@ -1,12 +1,12 @@
 import type { Project } from '../types';
-import { ExternalLink, Shield, Code, Layout, Box, Maximize2 } from 'lucide-react';
+import { ExternalLink, Maximize2 } from 'lucide-react';
 
 interface ProjectCardProps extends Project {
   onOpenDetails: (project: Project) => void;
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
-  const { title, description, img, link, categories, tech, tools, onOpenDetails } = props;
+  const { title, description, img, link, categories, tech, onOpenDetails } = props;
   const isLinkAvailable = link && link !== "#";
 
   return (
